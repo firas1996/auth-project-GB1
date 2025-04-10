@@ -10,10 +10,10 @@ function App() {
     const token = localStorage.getItem("token");
     if (token === "123") {
       setIsLoggedIn(true);
-      console.log("effect");
+      // console.log("effect");
     }
   }, []);
-  console.log("outside");
+  // console.log("outside");
   const loginHandler = (email, password) => {
     setIsLoggedIn(true);
     localStorage.setItem("token", 123);

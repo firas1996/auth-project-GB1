@@ -25,6 +25,7 @@ const Login = (props) => {
     setFormIsValid(
       event.target.value.trim().length > 6 && enteredEmail.includes("@")
     );
+    console.log("aaaa");
   };
 
   const validateEmailHandler = () => {
