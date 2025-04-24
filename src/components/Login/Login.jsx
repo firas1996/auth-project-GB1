@@ -4,6 +4,7 @@ import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
+import axios from "axios";
 
 const emailReducer = (prevState, actions) => {
   switch (actions.name) {
@@ -34,6 +35,14 @@ const passwordReducer = (prevState, actions) => {
 };
 
 const Login = () => {
+  const testLogin = async (email, password) => {
+    // const res = await axios.get("http://10.33.2.3:7777/users");
+    const res = await axios.post("http://10.33.2.3:7777/users/login", {
+      email,
+      password,
+    });
+    console.log(res);
+  };
   // const [enteredEmail, setEnteredEmail] = useState("");
   // const [emailIsValid, setEmailIsValid] = useState();
 
@@ -97,7 +106,8 @@ const Login = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    loginHandler(email.value, password.value);
+    testLogin(email.value, password.value);
+    // loginHandler(email.value, password.value);
   };
 
   return (
